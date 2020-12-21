@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Entity;
+using LocalUtil;
 
 
 // 構造体のシリアライズ
@@ -20,7 +22,7 @@ public struct PlayerStats
 public class GameController : MonoBehaviour {
 
     // 検証用コードなので意味はない
-    // #region Serialize検証
+    #region Serialize検証
 
     // [SerializeField] PlayerStats stats;
 
@@ -34,11 +36,12 @@ public class GameController : MonoBehaviour {
     // // Ｕｎｉｔｙはフロントを通すのでそれを飛ばした方が性能が良いかもしれない
     // public int hoge { get; set; }
 
-    // #endregion
+    #endregion
 
 
     // Unity内で許可したオブジェクトからは参照を許す修飾子
     // [SerializeField]は外部参照可能アクセス制限（ドラッグドロップで紐づけたオブジェクトだけ許可する）（publicとかprotectedみたいな話）
+    #region Serialize
     [SerializeField] Text scenarioMessage;
 
     // 選択ボタン
@@ -46,6 +49,8 @@ public class GameController : MonoBehaviour {
 
     // ボタン表示領域パネル
     [SerializeField] Transform buttonPanel;
+
+    #endregion
 
     Scenario currentScenario;
     int index = 0;
@@ -58,17 +63,25 @@ public class GameController : MonoBehaviour {
     Scenario scenario02;
 
     bool isCheckedKey = false;
-    
+
+
+    #region 改修前コード
+
     // 初期化
     void Start()
     {
+        var textData = TextReader.getTextFileData("Storys/1_sample");
+
+        Debug.Log(textData);
+
         var scenario01 = new Scenario()
         {
             ScenarioID = "scenario01",
-            Texts = new List<string>()
-            {
-                "目を覚ますと、知らない部屋にいた"
-            },
+            // Texts = new List<string>()
+            // {
+            //     "目を覚ますと、知らない部屋にいた"
+            // },
+            Texts = textData.Values.ToList<string>(),
             NextScenarioID = "scenario02"
         };
 
@@ -274,4 +287,5 @@ public class GameController : MonoBehaviour {
         }
     }
 
+    #endregion
 }
