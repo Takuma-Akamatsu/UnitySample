@@ -13,7 +13,7 @@ namespace Entity
         /// <summary>
         /// ユニットシーン自身のID
         /// </summary>
-        public abstract string UnitSceneID {
+        public abstract string unitSceneID {
             get; protected set;
         }
 
@@ -21,7 +21,7 @@ namespace Entity
         /// <summary>
         /// 次のユニットシーンのID
         /// </summary>
-        public abstract string NextUnitSceneID { 
+        public abstract string nextUnitSceneID { 
             get; protected set;
         }
     }

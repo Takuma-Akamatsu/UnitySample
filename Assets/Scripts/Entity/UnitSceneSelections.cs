@@ -12,17 +12,17 @@ namespace Entity
         /// <summary>
         /// ユニットシーン自身のID
         /// </summary>
-        public override string UnitSceneID
+        public override string unitSceneID
         {
             get
             {
-                return UnitSceneID;
+                return unitSceneID;
             }
             protected set
             {
-                if (UnitSceneID == null)
+                if (unitSceneID == null)
                 {
-                    UnitSceneID = value;
+                    unitSceneID = value;
                 }
             }
         }
@@ -30,22 +30,22 @@ namespace Entity
         /// <summary>
         /// 次のユニットシーンのID
         /// </summary>
-        public override string NextUnitSceneID
+        public override string nextUnitSceneID
         {
             get
             {
-                return NextUnitSceneID;
+                return nextUnitSceneID;
             }
             protected set
             {
-                NextUnitSceneID = value;
+                nextUnitSceneID = value;
             }
         }
 
         /// <summary>
         /// クリック送り単位での文章リスト
         /// </summary>
-        public List<string> Texts;
+        public List<string> texts;
 
         /// <summary>
         /// コンストラクタ
@@ -53,11 +53,11 @@ namespace Entity
         /// <param name="unitId">ユニットシーン自身のID</param>
         /// <param name="nextUnitId">次のユニットシーンのID</param>
         /// <param name="texts">クリック送り単位での文章リスト</param>
-        public UnitSceneSelections(string unitId, string nextUnitId, List<string> texts)
+        public UnitSceneSelections(string unitId, string nextUnitId, List<string> textList)
         {
-            Texts = texts;
-            UnitSceneID = unitId;
-            NextUnitSceneID = nextUnitId;
+            texts = textList;
+            unitSceneID = unitId;
+            nextUnitSceneID = nextUnitId;
         }
     }
 }
