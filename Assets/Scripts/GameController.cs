@@ -141,36 +141,36 @@ public class GameController : MonoBehaviour {
     void ExitScenario()
     {
         scenarioMessage.text = "";
-        index = 0;
-        if (string.IsNullOrEmpty(currentUnitSceneText.nextUnitSceneID))
-        {
-            currentUnitSceneText = null;
-        }
-        else
-        {
-            var nextScenario = scenarios.Find
-                (s => s.ScenarioID == currentUnitSceneText.nextUnitSceneID);
-            currentUnitSceneText = nextScenario;
-        }
-        index = 0;
-        if (currentUnitSceneText.Options.Count > 0)
-        {
-            SetOptions();
-        }
-        else
-        {
-            scenarioMessage.text = "";
-            var nextScenario = scenarios.Find
-            (s => s.ScenarioID == currentUnitSceneText.NextScenarioID);
-            if (nextScenario != null)
-            {
-                SetScenario(nextScenario);
-            }
-            else
-            {
-                currentUnitSceneText = null;
-            }
-        }
+        //index = 0;
+        //if (string.IsNullOrEmpty(currentUnitSceneText.nextUnitSceneID))
+        //{
+        //    currentUnitSceneText = null;
+        //}
+        //else
+        //{
+        //    var nextScenario = scenarios.Find
+        //        (s => s.ScenarioID == currentUnitSceneText.nextUnitSceneID);
+        //    currentUnitSceneText = nextScenario;
+        //}
+        //index = 0;
+        //if (currentUnitSceneText.Options.Count > 0)
+        //{
+        //    SetOptions();
+        //}
+        //else
+        //{
+        //    scenarioMessage.text = "";
+        //    var nextScenario = scenarios.Find
+        //    (s => s.ScenarioID == currentUnitSceneText.NextScenarioID);
+        //    if (nextScenario != null)
+        //    {
+        //        SetScenario(nextScenario);
+        //    }
+        //    else
+        //    {
+        //        currentUnitSceneText = null;
+        //    }
+        //}
     }
 
 
